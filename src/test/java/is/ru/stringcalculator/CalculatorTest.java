@@ -45,4 +45,14 @@ public class CalculatorTest {
 		}
 	}
 	
+	@Test
+	public void testManyNegativeNumber(){
+		try{
+			assertEquals("Negatives not allowd: -1,-5,-8", Calculator.add("-1,-5,-8,5"));
+		}
+		catch (Exception e) {
+			assertEquals("Negatives not allowd: -1,-5,-8", e.getMessage() );
+		}
+	}
+	
 }

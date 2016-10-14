@@ -26,15 +26,25 @@ public class Calculator {
 	}
 	
 	private static int sum(String[] numbers){
-			int totalSum = 0;
-			for(String number : numbers){
-				if(number.contains("-")){
-					String errorMessage = "Negatives not allowd: " + number; 
-					throw new IllegalArgumentException(errorMessage);
+		boolean isNegative = false;
+		int totalSum = 0;
+		String errorMessage ="Negatives not allowd: ";
+		for(String number : numbers){
+			if(number.contains("-")){
+				if(!isNegative){
+					errorMessage += number;
 				}
-				totalSum += toInt(number);
+				else{
+					errorMessage += "," + number;
+				}
+				isNegative = true; 
 			}
-			return totalSum;
+			totalSum += toInt(number);
+		}
+		if(isNegative){
+			throw new IllegalArgumentException(errorMessage);
+		}
+		return totalSum;
 	}
 
 }
