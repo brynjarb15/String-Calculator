@@ -29,4 +29,9 @@ public class CalculatorTest {
 	public void testThreeNumbers(){
 		assertEquals(10, Calculator.add("4,5,1"));
 	}
+	
+	@Test
+	public void testNewLineSplit(){
+		assertEquals(6, Calculator.add("1\n2,3"));
+	}
 }
