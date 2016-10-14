@@ -60,4 +60,9 @@ public class CalculatorTest {
 		assertEquals(3, Calculator.add("1001,3"));
 	}
 	
+	@Test
+	public void testDelimiterNumber(){
+		assertEquals(3, Calculator.add("//;\n1;2"));
+	}
+	
 }

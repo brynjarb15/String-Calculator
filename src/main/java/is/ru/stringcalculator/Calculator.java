@@ -5,11 +5,16 @@ package is.ru.stringcalculator;
 public class Calculator {
 	
 	public static int add(String text){
+		char delimiter = ',';
+		if(text.startsWith("//")){
+			delimiter = text.charAt(2);
+			text = text.substring(4);
+		}
 		if(text.equals("")){
 			return 0;
 		}
-		else if(text.contains(",")){
-			String[] numbers = splitNumbers(text);
+		else if(text.contains(",") || (text.contains(String.valueOf(delimiter)))){
+			String[] numbers = splitNumbers(text, delimiter);
 			return sum(numbers);
 		}
 		else{
@@ -21,8 +26,12 @@ public class Calculator {
 		return Integer.parseInt(number);
 	}
 	
-	private static String[] splitNumbers(String numbers){
-		return numbers.split("[\n,]");
+	private static String[] splitNumbers(String numbers, char delimiter){
+		String delimiters = "[\n,]";
+		if (delimiter != ','){
+			delimiters = "[\n," + delimiter + "]";
+		}
+		return numbers.split(delimiters);
 	}
 	
 	private static int sum(String[] numbers){
