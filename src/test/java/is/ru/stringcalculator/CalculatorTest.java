@@ -34,4 +34,15 @@ public class CalculatorTest {
 	public void testNewLineSplit(){
 		assertEquals(6, Calculator.add("1\n2,3"));
 	}
+	
+	@Test
+	public void testOneNegativeNumber(){
+		try{
+			assertEquals("Negatives not allowd: -1", Calculator.add("-1,2"));
+		}
+		catch (Exception e) {
+			assertEquals("Negatives not allowd: -1", e.getMessage() );
+		}
+	}
+	
 }

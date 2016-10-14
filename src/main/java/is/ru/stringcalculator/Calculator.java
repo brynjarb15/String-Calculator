@@ -28,6 +28,10 @@ public class Calculator {
 	private static int sum(String[] numbers){
 			int totalSum = 0;
 			for(String number : numbers){
+				if(number.contains("-")){
+					String errorMessage = "Negatives not allowd: " + number; 
+					throw new IllegalArgumentException(errorMessage);
+				}
 				totalSum += toInt(number);
 			}
 			return totalSum;
