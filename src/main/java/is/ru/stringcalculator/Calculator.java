@@ -39,6 +39,9 @@ public class Calculator {
 				}
 				isNegative = true; 
 			}
+			if(toInt(number) > 1000){
+				number = "0";
+			}
 			totalSum += toInt(number);
 		}
 		if(isNegative){
@@ -46,5 +49,4 @@ public class Calculator {
 		}
 		return totalSum;
 	}
-
 }

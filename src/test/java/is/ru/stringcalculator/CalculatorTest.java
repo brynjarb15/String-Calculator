@@ -55,4 +55,9 @@ public class CalculatorTest {
 		}
 	}
 	
+	@Test
+	public void testBigNumber(){
+		assertEquals(3, Calculator.add("1001,3"));
+	}
+	
 }
